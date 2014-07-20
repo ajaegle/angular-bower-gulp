@@ -18,3 +18,7 @@ gulp.task('js', function () {
       .pipe(concat('app.js'))
       .pipe(gulp.dest('build'));
 });
+
+gulp.task('greet', function () {
+   console.log('Hello world!');
+});
