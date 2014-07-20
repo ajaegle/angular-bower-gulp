@@ -18,15 +18,3 @@ gulp.task('js', function () {
       .pipe(concat('app.js'))
       .pipe(gulp.dest('build'));
 });
-
-gulp.task('greet', function () {
-   console.log('greetings');
-});
-
-gulp.task('hello', function () {
-   console.log('hello');
-});
-
-gulp.task('goodbye', ['greet', 'hello'], function() {
-   console.log('goodbye');
-});
