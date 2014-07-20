@@ -20,5 +20,13 @@ gulp.task('js', function () {
 });
 
 gulp.task('greet', function () {
-   console.log('Hello world!');
+   console.log('greetings');
+});
+
+gulp.task('hello', function () {
+   console.log('hello');
+});
+
+gulp.task('goodbye', ['greet', 'hello'], function() {
+   console.log('goodbye');
 });
