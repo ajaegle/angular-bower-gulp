@@ -13,7 +13,7 @@ gulp.task('minify', function () {
 gulp.task('js', function () {
    return gulp.src('js/*.js')
       .pipe(jshint())
-      .pipe(jshint.reporter('default'))
+      .pipe(jshint.reporter('jshint-stylish'))
       .pipe(uglify())
       .pipe(concat('app.js'))
       .pipe(gulp.dest('build'));
