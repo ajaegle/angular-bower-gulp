@@ -17,6 +17,6 @@ gulp.task('js', function () {
       .pipe(jshint.reporter('jshint-stylish'))
       .pipe(uglify())
       .pipe(concat('app.js'))
-      .pipe(gulp.dest('build'))
-	  .pipe(notify('js task completed.'));
+      .pipe(gulp.dest('build'));
+	    // .pipe(notify('js task completed.'));
 });
