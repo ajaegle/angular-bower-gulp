@@ -32,4 +32,5 @@ gulp.task('webserver', function() {
     .pipe(webserver({
       livereload: true
     }));
+  gulp.watch('app/js/**/*.js', ['js']);
 });
