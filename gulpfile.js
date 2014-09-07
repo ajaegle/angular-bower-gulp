@@ -1,8 +1,7 @@
-var gulp = require('gulp'),
-   uglify = require('gulp-uglify'),
-   jshint = require('gulp-jshint'),
-   concat = require('gulp-concat');
-var notify = require('gulp-notify');
+var gulp = require('gulp');
+var uglify = require('gulp-uglify');
+var jshint = require('gulp-jshint');
+var concat = require('gulp-concat');
 var webserver = require('gulp-webserver');
 
 gulp.task('minify', function () {
@@ -19,7 +18,6 @@ gulp.task('js', function () {
       .pipe(uglify())
       .pipe(concat('app.js'))
       .pipe(gulp.dest('build/js/'));
-	    // .pipe(notify('js task completed.'));
 });
 
 gulp.task('html', function() {
