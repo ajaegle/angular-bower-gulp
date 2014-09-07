@@ -3,6 +3,7 @@ var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var webserver = require('gulp-webserver');
+var mainbowerfiles = require('main-bower-files');
 
 gulp.task('minify', function () {
    gulp.src('app/js/app.js')
@@ -10,6 +11,12 @@ gulp.task('minify', function () {
       .pipe(gulp.dest('build'))
 });
 
+gulp.task('bower', function () {
+  return gulp.src(mainbowerfiles( { debugging: true } ),
+                    { base: './bower_components/' } )
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('build/js/'));
+});
 
 gulp.task('js', function () {
    return gulp.src('app/js/*.js')
@@ -25,10 +32,13 @@ gulp.task('html', function() {
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('webserver', function() {
+gulp.task('webserver', ['html', 'js', 'bower'], function() {
   gulp.src('build')
     .pipe(webserver({
       livereload: true
     }));
+
+  gulp.watch('app/**/*.html', ['html']);
   gulp.watch('app/js/**/*.js', ['js']);
+  gulp.watch('bower_components', ['bower']);
 });

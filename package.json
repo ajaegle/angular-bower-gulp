@@ -9,7 +9,8 @@
     "gulp-jshint": "^1.8.4",
     "gulp-uglify": "^1.0.1",
     "gulp-webserver": "^0.8.0",
-    "jshint-stylish": "^0.4.0"
+    "jshint-stylish": "^0.4.0",
+    "main-bower-files": "^2.0.0"
   },
   "dependencies": {},
   "scripts": {

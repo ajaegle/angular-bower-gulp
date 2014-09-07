@@ -1,0 +1,18 @@
+{
+  "name": "angular-bower-gulp",
+  "version": "0.0.0",
+  "authors": [
+    "ajaegle <mail@ajaegle.de>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
