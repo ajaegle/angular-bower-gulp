@@ -1,3 +1,3 @@
-var echo = function(val) {
-  alert(val);
-};
+(function () {
+  $('div.content').html('<h1>new content</h1>');
+})();
