@@ -12,8 +12,10 @@ gulp.task('minify', function () {
 });
 
 gulp.task('bower', function () {
-  return gulp.src(mainbowerfiles( { debugging: true } ),
-                    { base: './bower_components/' } )
+  return gulp.src(
+      mainbowerfiles( { debugging: true, checkExistence: true } ),
+      { base: './bower_components/' }
+    )
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('build/js/'));
 });
