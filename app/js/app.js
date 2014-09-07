@@ -17,7 +17,7 @@
             function (err) {
               $scope.err = err;
             }
-          )
+          );
         };
         $scope.fetchUser($scope.name);
       }]);
