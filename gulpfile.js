@@ -4,6 +4,7 @@ var jshint = require('gulp-jshint');
 var concat = require('gulp-concat');
 var webserver = require('gulp-webserver');
 var mainbowerfiles = require('main-bower-files');
+var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('minify', function () {
    gulp.src('app/js/app.js')
@@ -24,8 +25,10 @@ gulp.task('js', function () {
    return gulp.src('app/js/*.js')
       .pipe(jshint())
       .pipe(jshint.reporter('jshint-stylish'))
-      .pipe(uglify())
-      .pipe(concat('app.js'))
+      .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(concat('app.js'))
+      .pipe(sourcemaps.write())
       .pipe(gulp.dest('build/js/'));
 });
 
