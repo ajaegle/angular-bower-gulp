@@ -1,6 +1,4 @@
 (function () {
-  $('div.content').html('<h1>new content</h1>');
-
   angular.module('aj', ['restangular']);
   angular.module('aj')
     .controller('MainCtrl', ['$scope', 'Restangular',
