@@ -1,6 +1,7 @@
 (function () {
   'use strict';
 
+  /* @ngInject */
   function MainCtrl ($scope, Restangular) {
     $scope.name = 'ajaegle';
     $scope.user = {};
@@ -20,6 +21,6 @@
   }
 
   angular.module('aj')
-    .controller('MainCtrl', ['$scope', 'Restangular', MainCtrl]);
+    .controller('MainCtrl', MainCtrl);
 
 }) ();

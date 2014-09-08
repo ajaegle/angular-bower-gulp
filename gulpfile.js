@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var webserver = require('gulp-webserver');
 var mainbowerfiles = require('main-bower-files');
 var sourcemaps = require('gulp-sourcemaps');
+var ngAnnotate = require('gulp-ng-annotate');
 
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
@@ -30,6 +31,7 @@ gulp.task('js', function () {
       .pipe(jshint())
       .pipe(jshint.reporter('jshint-stylish'))
       .pipe(jshint.reporter('fail'))
+      .pipe(ngAnnotate())
       .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(concat('app.js'))
