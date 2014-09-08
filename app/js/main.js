@@ -1,4 +1,5 @@
 (function () {
+  'use strict';
 
   function MainCtrl ($scope, Restangular) {
     $scope.name = 'ajaegle';
@@ -9,7 +10,6 @@
       User.one(name).get().then(
         function (data) {
           $scope.user = data;
-          console.log($scope.user.login);
         },
         function (err) {
           $scope.err = err;

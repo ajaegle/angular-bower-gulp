@@ -6,6 +6,9 @@ var webserver = require('gulp-webserver');
 var mainbowerfiles = require('main-bower-files');
 var sourcemaps = require('gulp-sourcemaps');
 
+var plumber = require('gulp-plumber');
+var notify = require('gulp-notify');
+
 gulp.task('minify', function () {
    gulp.src('app/js/app.js')
       .pipe(uglify())
@@ -23,8 +26,10 @@ gulp.task('bower', function () {
 
 gulp.task('js', function () {
    return gulp.src('app/js/*.js')
+      .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
       .pipe(jshint())
       .pipe(jshint.reporter('jshint-stylish'))
+      .pipe(jshint.reporter('fail'))
       .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(concat('app.js'))
