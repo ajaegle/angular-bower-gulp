@@ -7,6 +7,7 @@ var mainbowerfiles = require('main-bower-files');
 var sourcemaps = require('gulp-sourcemaps');
 var ngAnnotate = require('gulp-ng-annotate');
 
+var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 
@@ -17,8 +18,11 @@ gulp.task('minify', function () {
 });
 
 gulp.task('bower', function () {
+  var files = mainbowerfiles( { debugging: false, checkExistence: true } );
+  gutil.log('Processing', gutil.colors.cyan(files.length), 'bower files');
+
   return gulp.src(
-      mainbowerfiles( { debugging: false, checkExistence: true } ),
+      files,
       { base: './bower_components/' }
     )
     .pipe(concat('vendor.js'))
