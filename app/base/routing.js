@@ -9,15 +9,15 @@
       $stateProvider
         .state('home', {
           url: "/",
-          templateUrl: "partials/home.html"
+          templateUrl: "home/home.html"
         })
         .state('github', {
           url: "/github",
-          templateUrl: "partials/github.html"
+          templateUrl: "github/github.html"
         })
         .state('elasticsearch', {
           url: "/elasticsearch",
-          templateUrl: "partials/elasticsearch.html"
+          templateUrl: "elasticsearch/elasticsearch.html"
       });
     });
 })();

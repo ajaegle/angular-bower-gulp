@@ -24,7 +24,7 @@ gulp.task('bower', function () {
 });
 
 gulp.task('js', function () {
-   return gulp.src('app/js/*.js')
+   return gulp.src(['app/base/app.js','app/**/*.js'])
       .pipe(plumber({errorHandler: notify.onError("<%= error.message %>")}))
       .pipe(jshint())
       .pipe(jshint.reporter('jshint-stylish'))
@@ -49,6 +49,6 @@ gulp.task('webserver', ['html', 'js', 'bower'], function() {
     }));
 
   gulp.watch('app/**/*.html', ['html']);
-  gulp.watch('app/js/**/*.js', ['js']);
+  gulp.watch('app/**/*.js', ['js']);
   gulp.watch('bower_components', ['bower']);
 });
