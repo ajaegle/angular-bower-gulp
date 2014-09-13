@@ -20,6 +20,6 @@
           url: "/elasticsearch",
           templateUrl: "elasticsearch/elasticsearch.html",
           controller: "ElasticCtrl as es"
-      });
+        });
     });
 })();
