@@ -20,6 +20,20 @@
           url: "/elasticsearch",
           templateUrl: "elasticsearch/elasticsearch.html",
           controller: "ElasticCtrl as es"
+        })
+        .state('places', {
+          url: "/places",
+          templateUrl: "places/main.html",
+          controller: "PlacesCtrl as places",
+          abstract: true
+        })
+        .state('places.view', {
+          url: "/",
+          templateUrl: "places/view.html"
+        })
+        .state('places.add', {
+          url: "/add",
+          templateUrl: "places/form.html"
         });
     });
 })();
