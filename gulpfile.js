@@ -11,6 +11,13 @@ var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 
+var rimraf = require('gulp-rimraf');
+
+gulp.task('clean', function() {
+  return gulp.src('build/*', { read: false })
+    .pipe(rimraf());
+});
+
 gulp.task('bower', function () {
   var files = mainbowerfiles( { debugging: false, checkExistence: true } );
   gutil.log('Processing', gutil.colors.cyan(files.length), 'bower files');
