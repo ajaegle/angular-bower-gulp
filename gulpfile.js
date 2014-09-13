@@ -11,12 +11,6 @@ var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 
-gulp.task('minify', function () {
-   gulp.src('app/js/app.js')
-      .pipe(uglify())
-      .pipe(gulp.dest('build'))
-});
-
 gulp.task('bower', function () {
   var files = mainbowerfiles( { debugging: false, checkExistence: true } );
   gutil.log('Processing', gutil.colors.cyan(files.length), 'bower files');
