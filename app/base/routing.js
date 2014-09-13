@@ -14,7 +14,7 @@
         .state('github', {
           url: "/github",
           templateUrl: "github/github.html",
-          controller: "GithubCtrl as github",
+          controller: "GithubCtrl as github"
         })
         .state('elasticsearch', {
           url: "/elasticsearch",
