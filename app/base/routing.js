@@ -13,11 +13,13 @@
         })
         .state('github', {
           url: "/github",
-          templateUrl: "github/github.html"
+          templateUrl: "github/github.html",
+          controller: "GithubCtrl as github",
         })
         .state('elasticsearch', {
           url: "/elasticsearch",
-          templateUrl: "elasticsearch/elasticsearch.html"
+          templateUrl: "elasticsearch/elasticsearch.html",
+          controller: "ElasticCtrl as es"
       });
     });
 })();

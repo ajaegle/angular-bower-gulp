@@ -2,25 +2,26 @@
   'use strict';
 
   /* @ngInject */
-  function MainCtrl ($scope, Restangular) {
-    $scope.name = 'ajaegle';
-    $scope.user = {};
+  function GithubCtrl (Restangular) {
+    var vm = this;
+    this.name = 'ajaegle';
+    this.user = {};
 
     var User = Restangular.allUrl('users', 'https://api.github.com/users');
-    $scope.fetchUser = function (name) {
+    this.fetchUser = function (name) {
       User.one(name).get().then(
         function (data) {
-          $scope.user = data;
+          vm.user = data;
         },
         function (err) {
-          $scope.err = err;
+          vm.err = err;
         }
       );
     };
-    $scope.fetchUser($scope.name);
+    this.fetchUser(this.name);
   }
 
   angular.module('aj')
-    .controller('MainCtrl', MainCtrl);
+    .controller('GithubCtrl', GithubCtrl);
 
 }) ();
