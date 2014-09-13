@@ -25,7 +25,7 @@ gulp.task('bower', function () {
 
 gulp.task('js', function () {
    return gulp.src('app/js/*.js')
-      .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
+      .pipe(plumber({errorHandler: notify.onError("<%= error.message %>")}))
       .pipe(jshint())
       .pipe(jshint.reporter('jshint-stylish'))
       .pipe(jshint.reporter('fail'))
