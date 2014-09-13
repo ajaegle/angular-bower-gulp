@@ -11,12 +11,8 @@
         "query": {
           "filtered": {
             "filter": {
-              "bool": {
-                "must": [
-                  {"term": {
-                    "stationsName": "Karlsruhe"
-                  }}
-                ]
+              "term": {
+                "stationsName": "Karlsruhe"
               }
             }
           }
