@@ -1,0 +1,14 @@
+<div ng-controller="ElasticCtrl as es">
+  <h2>Elasticsearch</h2>
+  <div ng-show="!es.error">
+    <div>Hits: {{ es.result.data.hits.hits.length }}</div>
+    <div>
+      <ul>
+        <li ng-repeat="hit in es.result.data.hits.hits">
+          {{hit._source}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div ng-show="es.error">{{ es.data.status }}</div>
+</div>

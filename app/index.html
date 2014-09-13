@@ -4,26 +4,13 @@
 <body>
 
 <div ng-app="aj">
-  <div ng-controller="MainCtrl">
-    <h1>Github</h1>
-    <div>Name: {{ name }}</div>
-    <div>UserId: {{ user.id }}</div>
-  </div>
 
-  <div ng-controller="ElasticCtrl as es">
-    <h1>Elasticsearch</h1>
-    <div ng-show="!es.error">
-      <div>Hits: {{ es.result.data.hits.hits.length }}</div>
-      <div>
-        <ul>
-          <li ng-repeat="hit in es.result.data.hits.hits">
-            {{hit._source}}
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div ng-show="es.error">{{ es.data.status }}</div>
-  </div>
+  <h1>App</h1>
+  <a ui-sref="home">home</a>
+  <a ui-sref="github">github</a>
+  <a ui-sref="elasticsearch">elasticsearch</a>
+  <div ui-view></div>
+
 </div>
 
 <script src = "js/vendor.js" type="text/javascript"></script>

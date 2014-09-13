@@ -1,5 +1,5 @@
 (function () {
   'use strict';
 
-  angular.module('aj', ['restangular']);
+  angular.module('aj', ['restangular', 'ui.router']);
 })();
