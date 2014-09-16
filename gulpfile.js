@@ -7,9 +7,12 @@ var mainbowerfiles = require('main-bower-files');
 var sourcemaps = require('gulp-sourcemaps');
 var ngAnnotate = require('gulp-ng-annotate');
 
+var gulpFilter = require('gulp-filter');
+
 var gutil = require('gulp-util');
 var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
+var filelog = require('gulp-filelog');
 
 var rimraf = require('gulp-rimraf');
 
@@ -18,17 +21,38 @@ gulp.task('clean', function() {
     .pipe(rimraf());
 });
 
-gulp.task('bower', function () {
+gulp.task('bower-js', function () {
   var files = mainbowerfiles( { debugging: false, checkExistence: true } );
-  gutil.log('Processing', gutil.colors.cyan(files.length), 'bower files');
 
   return gulp.src(
       files,
       { base: './bower_components/' }
     )
+    .pipe(gulpFilter('**/*.js'))
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('build/js/'));
 });
+
+gulp.task('bower-css', function () {
+  var files = mainbowerfiles( { debugging: false, checkExistence: true } );
+  var cssFilter = gulpFilter('**/*.css');
+  var remainingFilter = gulpFilter(['**', '!**/*.css', '!**/*.js']);
+
+  return gulp.src(
+      files,
+      { base: './bower_components/' }
+    )
+    .pipe(cssFilter)
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('build/style/'))
+    .pipe(cssFilter.restore())
+    .pipe(remainingFilter)
+    //.pipe(filelog())
+    .pipe(gulp.dest('build/style/'))
+    .pipe(remainingFilter.restore());
+});
+
+gulp.task('bower', ['bower-js', 'bower-css']);
 
 gulp.task('js', function () {
    return gulp.src(['app/base/app.js','app/**/*.js'])
