@@ -24,8 +24,7 @@
     vm.center = {
       lat: 49.009356,
       lng: 8.403697,
-      zoom: 16,
-      autoDiscover: true
+      zoom: 16
     };
 
     vm.addMarkers = function() {
