@@ -36,3 +36,15 @@ The project uses angularjs 1.2 and the great ui-router module for structuring
 the application code and handling navigation. The individual pages use the
 $http service or the restangular module to connect to some rest services. The
 places views integrate the angular-leaflet-directive to show some map component.
+
+== Drawbacks
+
+This is a sample project used to check out some features and third party
+libraries for angularjs together with the gulp build process. Due to this, there
+may be some hard coded paths and servers that will not be accessible for you.
+Nevertheless I will try to keep these references to a minimum, so that the
+project still can be run without having access to these systems.
+
+Currently there are the following drawbacks:
+
+* the elasticsearch service fetches data from a certain hard coded url.
