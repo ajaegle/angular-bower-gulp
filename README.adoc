@@ -1,0 +1,38 @@
+= angular-bower-gulp
+Andreas Jägle <mail@ajaegle.de>
+
+A sample project showing how to integrate angularjs with bower and gulp,
+especially concerning the handling of third party scripts and assets.
+
+== Requirements
+
+For building and running this application, there are some requirements for the
+environment. The build is done using gulp (which is a node module) and uses bower
+for all browser dependencies (javascript, css).
+
+To build the application, you need to have the following modules installed
+globally:
+
+* node & npm
+* bower
+* gulp
+
+== Running the application
+
+To run the appliation, it's necessary to install all dependencies used for
+building and packaging within the application. The gulp task then runs a
+webserver with live reload capabilities. So every change to one of the project
+files results in an immediate reloading. On Mac OS, Linux and Windows > 7
+there will be notifications when some build error is detected.
+
+[source,bash]
+npm install
+bower install
+gulp webserver
+
+== Contents of the application
+
+The project uses angularjs 1.2 and the great ui-router module for structuring
+the application code and handling navigation. The individual pages use the
+$http service or the restangular module to connect to some rest services. The
+places views integrate the angular-leaflet-directive to show some map component.
