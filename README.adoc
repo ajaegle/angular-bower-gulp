@@ -62,3 +62,4 @@ project still can be run without having access to these systems.
 Currently there are the following drawbacks:
 
 * the elasticsearch service fetches data from a certain hard coded url.
+* handling css / images from bower still needs some cleanup.
