@@ -4,6 +4,20 @@ Andreas Jägle <mail@ajaegle.de>
 A sample project showing how to integrate angularjs with bower and gulp,
 especially concerning the handling of third party scripts and assets.
 
+This project therefore integrates some javascript libraries and angular modules
+to demonstrate how this can be used easily with gulp.
+
+The key features are:
+
+* the app is structured using angular ui-router
+* scopes are used explicitly using the controllerAs mechanism
+* the angular services and controllers are wrapped in IIFEs
+* angular dependency injection using ng-annotate for DRY
+
+* during development there is a live reload webserver
+* the bower components are bundled together without explicitly listing them
+* jshint is triggered on every change, errors are reported to the notification center
+
 == Requirements
 
 For building and running this application, there are some requirements for the
