@@ -5,7 +5,7 @@
   function GithubCtrl (Restangular) {
     var vm = this;
     this.name = 'ajaegle';
-    this.user = {};
+    this.user = null;
 
     var User = Restangular.allUrl('users', 'https://api.github.com/users');
     this.fetchUser = function (name) {

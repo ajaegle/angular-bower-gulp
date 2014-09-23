@@ -2,4 +2,8 @@
   <h2>Github</h2>
   <div>Name: {{ github.name }}</div>
   <div>UserId: {{ github.user.id }}</div>
+  <img ng-show="github.user"
+    ng-src="{{github.user.avatar_url}}"
+    alt="pic of {{github.name}}"
+    style="width: 4em; height:4em">
 </div>
